@@ -74,7 +74,7 @@ function draw() {
   cam.end();
 
   // HUD
-  fill(0);
+  fill('white');
   noStroke();
   text(level.name + " (Example 5)", 10, 18);
   text("A/D or ←/→ move • Space/W/↑ jump • Fall = respawn", 10, 36);

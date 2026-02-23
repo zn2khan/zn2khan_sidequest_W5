@@ -4,7 +4,7 @@ class WorldLevel {
 
     this.theme = Object.assign(
       { bg: "#F0F0F0", platform: "#C8C8C8", blob: "#1478FF" },
-      levelJson.theme ?? {}
+      levelJson.theme ?? {},
     );
 
     // Physics knobs
@@ -24,19 +24,21 @@ class WorldLevel {
 
     // Platforms
     this.platforms = (levelJson.platforms ?? []).map(
-      (p) => new Platform(p.x, p.y, p.w, p.h)
+      (p) => new Platform(p.x, p.y, p.w, p.h, p.color),
     );
   }
 
   drawWorld() {
     image(bgImg, 0, 0, this.w, this.h);
-
+  
     push();
     rectMode(CORNER);
     noStroke();
     fill(this.theme.platform);
-
-    for (const p of this.platforms) rect(p.x, p.y, p.w, p.h);
-    pop();
+  
+    for (const p of this.platforms) {
+      fill(p.color ?? this.theme.platform);
+      rect(p.x, p.y, p.w, p.h);
+    }
   }
 }
