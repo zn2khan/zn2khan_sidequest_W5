@@ -25,9 +25,11 @@ let levelIndex = 0;
 let level;
 let player;
 let cam;
+let bgImg;
 
 function preload() {
   allLevelsData = loadJSON("levels.json"); // levels.json beside index.html [web:122]
+  bgImg = loadImage("background_sidequest_w5.png");
 }
 
 function setup() {
